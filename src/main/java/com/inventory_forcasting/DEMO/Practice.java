@@ -18,7 +18,8 @@ public class Practice {
 //        p.test4();
 //        p.test5();
 
-        p.test6();
+//        p.test6();
+        p.test7();
     }
 
     //Use Stream API to find all even numbers greater than 15 and collect them into a new list.
@@ -83,11 +84,29 @@ public class Practice {
                 "Stream operations are lazy"
         );
         Random r= new Random();
-        int[] i=r.ints().toArray();
+//        int[] i=r.ints().toArray();
 
-        System.out.println(sentences.stream().map(k->k.split(" ")).toList().stream().flatMap(k-> Arrays.stream(k))
+        System.out.println(sentences.stream().map(k->k.split(" ")).toList()
+                .stream().flatMap(k-> Arrays.stream(k))
                 .filter(k->k.length()>5).collect(Collectors.toSet()));
     }
 
-    //
+    //You are given a list of integers. Write a Java Stream-based solution to find the first element in the list that
+    // is divisible by 5, but not divisible by 2 or 3. If no such element exists, return Optional.empty().
+    private void test7(){
+        List<Integer> numbers = Arrays.asList(10, 15, 20, 25, 30, 35, 40);
+        System.out.println(numbers.stream().filter(k->k%5==0 && k%2!=0 && k%3!=0).limit(1).toList());
+    }
+
+    //You are tasked with computing the sum of squares of all even numbers from a large list using parallel streams
+    // for performance optimization. Use the ParallelStream to speed up the computation.
+    private void test8(){
+
+    }
+
+    //Write a Java Stream solution that takes a list of strings and returns a new list where each string is reversed,
+    // but only if it contains at least one vowel. The solution should exclude strings that contain no vowels.
+    private void test9(){
+
+    }
 }
